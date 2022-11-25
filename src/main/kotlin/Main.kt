@@ -1,3 +1,5 @@
+import dataMahasiswa.mahasiswa1
+
 fun main() {
     println("Hello World!")
     println("GILS BWANG")
