@@ -2,11 +2,11 @@ import dataMahasiswa.Mahasiswa
 import dataMahasiswa.dataMahasiswa
 import java.util.Scanner
 
-fun main() {
-    // buat variabel utk validasi login
-    var dataExist: Boolean = false
-    var password: String? = null
 
+// buat variabel utk validasi login
+private var dataExist: Boolean = false
+private var password: String? = null
+fun main() {
     // akan melakukan looping jika nim tidak ditemukan || password salah
     do {
         // ambil input dari user
@@ -38,7 +38,7 @@ fun main() {
                 // akan melakukan validasi password
                 if (password == inputPassword) {
                     println("Berhasil login!")
-                    val mahasiswa = Mahasiswa()
+                    val mahasiswa = Mahasiswa(nama)
                     mahasiswa.absen()
                 } else {
                     dataExist = false

@@ -1,10 +1,9 @@
 package dataMahasiswa
 
-class Mahasiswa: InterfaceMahasiswa {
+class Mahasiswa(nama: String): InterfaceMahasiswa {
     override val nim: Long
         get() = TODO("Not yet implemented")
-    override val nama: String
-        get() = TODO("Not yet implemented")
+    override val nama: String = nama
     override val email: String
         get() = TODO("Not yet implemented")
     override val password: String
@@ -14,12 +13,12 @@ class Mahasiswa: InterfaceMahasiswa {
 
     override fun absen() {
         println("""
-==============================================================            
-|            Silahkan isi absen di bawah ini:                |
-|            [1]: Hadir                                      |
-|            [2]: Sakit                                      |
-|            [3]: Izin                                       |
-==============================================================  
+================================================================================            
+|            $nama Silahkan isi absen di bawah ini:                            |
+|            [1]: Hadir                                                        |
+|            [2]: Sakit                                                        |
+|            [3]: Izin                                                         |
+================================================================================
         """.trimIndent())
     }
 }
