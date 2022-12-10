@@ -39,8 +39,7 @@ fun main() {
                 if (password == inputPassword) {
                     println("Berhasil login!")
                     val mahasiswa = Mahasiswa()
-                    mahasiswa.nama = nama
-                    println(mahasiswa.absen())
+                    mahasiswa.absen()
                 } else {
                     dataExist = false
                 }

@@ -8,13 +8,5 @@ interface InterfaceMahasiswa {
     val prodi: String
 
     fun absen(): Unit {
-        println("""
-==============================================================            
-|            $nama, silahkan isi absen di bawah ini:         |
-|            [1]: Hadir                                      |
-|            [2]: Sakit                                      |
-|            [3]: Izin                                       |
-==============================================================  
-        """.trimIndent())
     }
 }
