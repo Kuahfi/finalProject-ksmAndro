@@ -1,17 +1,18 @@
 package dataMahasiswa
 
-data class Mahasiswa(
-    val nim: Long,
-    val nama: String,
-    val email: String,
-    val password: String,
-    val prodi: String
-)
+class Mahasiswa: InterfaceMahasiswa {
+    override val nim: Long
+        get() = TODO("Not yet implemented")
+    override var nama: String = ""
+        get() = TODO("Not yet implemented")
+    override val email: String
+        get() = TODO("Not yet implemented")
+    override val password: String
+        get() = TODO("Not yet implemented")
+    override val prodi: String
+        get() = TODO("Not yet implemented")
 
-// instansiasi data class mahasiswa
-val mahasiswa1 = Mahasiswa(2210511007,"Muhammad Kahfi Darmawan", "2210511007@mahasiswa.upnvj.ac.id", "kahfi", "Informatika")
-val mahasiswa2 = Mahasiswa(2210511015, "Jonathan Christoper Basuki", "2210511015@mahasiswa.upnvj.ac.id", "jonathan", "Informatika")
-
-// membuat list data mahasiswa utk keperluan validasi login
-var dataMahasiswa = listOf<Mahasiswa>(mahasiswa1, mahasiswa2)
-
+    override fun absen() {
+        super.absen()
+    }
+}

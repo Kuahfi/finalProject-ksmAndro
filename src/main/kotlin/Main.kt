@@ -1,3 +1,4 @@
+import dataMahasiswa.Mahasiswa
 import dataMahasiswa.dataMahasiswa
 import java.util.Scanner
 
@@ -10,7 +11,13 @@ fun main() {
     do {
         // ambil input dari user
         print("Masukkan NIM: ")
-        var inputNim = readLine()?.toLong() // -> konversi tipe data
+        var inputNim = readLine()
+
+        while (inputNim?.length!! != 10) {
+            print("Masukkan NIM yang benar: ")
+            inputNim = readLine()
+        }
+        var nim = inputNim.toLong() // -> konversi tipe data
 
         print("Masukkan Password: ")
         var inputPassword = readLine()
@@ -18,7 +25,7 @@ fun main() {
         // akan melakukan looping utk ngecek data mahasiswa yg ada
         for (mahasiswa in dataMahasiswa) {
             // akan melakukan validasi password berdasarkan nim yg dimasukkan
-            if (mahasiswa.nim == inputNim) {
+            if (mahasiswa.nim == nim) {
                 dataExist = true
                 password = mahasiswa.password
 
@@ -31,6 +38,9 @@ fun main() {
                 // akan melakukan validasi password
                 if (password == inputPassword) {
                     println("Berhasil login!")
+                    val mahasiswa = Mahasiswa()
+                    mahasiswa.nama = nama
+                    println(mahasiswa.absen())
                 } else {
                     dataExist = false
                 }
