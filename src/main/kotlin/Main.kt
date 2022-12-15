@@ -1,11 +1,10 @@
 import dataMahasiswa.Mahasiswa
 import dataMahasiswa.dataMahasiswa
-import java.util.Scanner
 
-
-// buat variabel utk validasi login
-private var dataExist: Boolean = false
+// buat variabel utk validasi login dengan visibility modifier
+private var nim: Long? = null
 private var password: String? = null
+
 fun main() {
     // akan melakukan looping jika nim tidak ditemukan || password salah
     do {
@@ -13,14 +12,29 @@ fun main() {
         print("Masukkan NIM: ")
         var inputNim = readLine()
 
-        while (inputNim?.length!! != 10) {
-            print("Masukkan NIM yang benar: ")
-            inputNim = readLine()
-        }
-        var nim = inputNim.toLong() // -> konversi tipe data
+        // akan melakukan looping jika nim tidak sesuai format
+        do {
+            // deklarasi variabel untuk menampung error
+            var nimError = false
 
+            // meminta input yang benar dari user
+            print("Masukkan format NIM yang benar: ")
+            inputNim = readLine()
+
+            // exception handling utk kasus input nim dengan abjad
+            try {
+                nim = inputNim?.toLong() // -> data type conversion
+            } catch (err: NumberFormatException) {
+                nimError = true
+            }
+        } while (inputNim?.length!! != 10 || nimError)
+
+        // minta password user
         print("Masukkan Password: ")
         var inputPassword = readLine()
+
+        // buat variabel utk validasi data
+        var dataExist: Boolean = false
 
         // akan melakukan looping utk ngecek data mahasiswa yg ada
         for (mahasiswa in dataMahasiswa) {
@@ -38,7 +52,9 @@ fun main() {
                 // akan melakukan validasi password
                 if (password == inputPassword) {
                     println("Berhasil login!")
-                    val mahasiswa = Mahasiswa(nama)
+
+                    // memanggil fungsi absen dari class Mahasiswa
+                    val mahasiswa = Mahasiswa(nim, nama, prodi)
                     mahasiswa.absen()
                 } else {
                     dataExist = false
