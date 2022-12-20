@@ -10,7 +10,7 @@ interface InterfaceMahasiswa {
     fun absen(): Unit {
         println("""
 ================================================================================            
-|            $nama Silahkan isi absen di bawah ini:                            |
+|            $nama, Silahkan isi absen di bawah ini:                            |
 |            [1]: Hadir                                                        |
 |            [2]: Sakit                                                        |
 |            [3]: Izin                                                         |
