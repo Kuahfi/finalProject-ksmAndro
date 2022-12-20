@@ -8,18 +8,14 @@ private var password: String? = null
 fun main() {
     // akan melakukan looping jika nim tidak ditemukan || password salah
     do {
-        // ambil input dari user
-        print("Masukkan NIM: ")
-        var inputNim = readLine()
-
         // akan melakukan looping jika nim tidak sesuai format
         do {
             // deklarasi variabel untuk menampung error
             var nimError = false
 
-            // meminta input yang benar dari user
-            print("Masukkan format NIM yang benar: ")
-            inputNim = readLine()
+            // meminta input nim user
+            print("Masukkan NIM: ")
+            var inputNim = readLine()
 
             // exception handling utk kasus input nim dengan abjad
             try {
@@ -27,7 +23,7 @@ fun main() {
             } catch (err: NumberFormatException) {
                 nimError = true
             }
-        } while (inputNim?.length!! != 10 || nimError)
+        } while (inputNim?.length != 10 || nimError)
 
         // minta password user
         print("Masukkan Password: ")
